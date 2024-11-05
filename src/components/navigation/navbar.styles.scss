@@ -1,0 +1,30 @@
+.navContainer{
+    width: 200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .navItems{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        
+        a{
+            text-decoration: none;
+            margin: 2px 0px;
+            padding: 5px;
+            color: black;
+            border-bottom: 1px solid black;
+
+        }
+        a:hover{
+            background: rgb(168, 221, 238);
+        }
+    }
+    
+}
+    
+.AppContainer{
+    display: flex;
+}

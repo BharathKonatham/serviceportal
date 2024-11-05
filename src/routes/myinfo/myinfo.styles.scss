@@ -1,0 +1,24 @@
+.myInfoContainer{
+    margin-left: 10px;
+    display: flex;
+    flex: 1;
+    background-color: rgb(244, 244, 244);
+    .apply{
+        margin:40px 20px;
+        flex-shrink: 0; /* Prevents flex expansion */
+        height: auto;
+        align-self: flex-start; /* Aligns to the start of container if needed */
+        button{
+            margin-left: 5px;
+            height: 25px;
+            border: 0px;
+            border-radius: 3px;
+            background-color: rgb(168, 221, 238);
+            cursor: pointer;
+        }
+        button:nth-child(1){
+            margin-left: 0px;
+        }
+    }
+   
+}

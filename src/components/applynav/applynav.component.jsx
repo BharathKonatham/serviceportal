@@ -1,20 +1,12 @@
 import React from 'react'
 import { Routes } from 'react-router-dom'
 import { snapData } from '../../data/snapdata/snapData'
-import ApplyingWork from '../applyingwork/applying.component'
-const ApplyNav = ({type}) => {
+
+const ApplyNav = ({type,menu}) => {
+
   console.log(type)
-  let menu = []
-  if(type === 'snap'){
-    menu = snapData
-  }
-  const getComponent = (item='How does applying work?')=>{
-    switch(item){
-      case 'How does applying work?': return <ApplyingWork />
-      default: return ''
-    }
-  }
-  let component = getComponent()
+  
+ 
 
   const menuClickHandler = (item)=>{
 
@@ -31,7 +23,7 @@ const ApplyNav = ({type}) => {
         ))}
       </ul>
     </div>
-    {component}
+    
    </div>
   )
 }

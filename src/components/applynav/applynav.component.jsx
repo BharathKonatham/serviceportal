@@ -1,6 +1,4 @@
 import React from 'react'
-import { Routes } from 'react-router-dom'
-import { snapData } from '../../data/snapdata/snapData'
 
 const ApplyNav = ({type,menu}) => {
 
@@ -17,7 +15,7 @@ const ApplyNav = ({type,menu}) => {
     <div className='navList'>
       <ul>
         {menu.map((item)=>(
-          <li>{item.check? <span>D</span>:''}
+          <li key={item.title}>{item.check? <span>D</span>:''}
             <button disabled={item.isDisabled} onClick={()=> menuClickHandler(item)}>{item.title}</button>
           </li>
         ))}

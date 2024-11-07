@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-const ApplyingWork = ({type,setPage,setPageCompleted}) => {
+const ApplyingWork = ({type,setSection,setSectionCompleted}) => {
   console.log(type)
   const handlClick = ()=>{
-    setPage('About Me')
-    setPageCompleted('How does applying work?')
+    setSection('About Me')
+    setSectionCompleted('How does applying work?')
   }
   return (
     <div>

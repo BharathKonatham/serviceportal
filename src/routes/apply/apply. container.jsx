@@ -2,47 +2,50 @@ import React, { useEffect, useState } from 'react'
 import ApplyNav from '../../components/applynav/applynav.component'
 import { useLocation } from 'react-router-dom'
 import { snapData } from '../../data/snapdata/snapData'
-import ApplyingWork from '../../components/applyingwork/applyingWork.component'
+import { AboutMe,ApplyingWork } from '../../components'
 const Apply = () => {
     const location = useLocation();
     const applyType = location.state?.type;
-    const [page,setPage] = useState(undefined)
+    const [section,setSection] = useState(undefined)
     const [menu,setMenu] = useState([])
-    const [pageCompleted,setPageCompleted] = useState(null)
+    const [sectionCompleted,setSectionCompleted] = useState(null)
    
-    console.log(applyType)
-   
-    const getComponent = (page = 'How does applying work?')=>{
-      switch(page){
-        case 'How does applying work?': return <ApplyingWork type={applyType} setPage={setPage} setPageCompleted={setPageCompleted}/>
+    const getComponent = (section = 'How does applying work?')=>{
+      switch(section){
+        case 'How does applying work?': return <ApplyingWork type={applyType} setSection={setSection} setSectionCompleted={setSectionCompleted}/>
+        case 'About Me': return <AboutMe type={applyType} setSection={setSection} setSectionCompleted={setSectionCompleted} />
         default: return ''
       }
     }
-    let component = getComponent(page)
 
-  console.log(page) 
+    let component = getComponent(section)
 
-  useEffect(() => {
-    if (applyType === 'snap') {
-      setMenu(snapData);
-    }
-  }, [applyType]); 
+    console.log(section) 
+
+    useEffect(() => {
+      if (applyType === 'snap') {
+        setMenu(snapData);
+      }
+    }, [applyType]); 
 
   useEffect(()=>{
     setMenu((prevMenu)=>{
       const newMenu = prevMenu.map((item, index) => {
-        if (item.title === pageCompleted) {
+        if (item.title === sectionCompleted) {
           return { ...item, isDisabled: false, check: true };
+        }
+        if(item.title === section){
+          return { ...item, isDisabled: false };
         }
         return item;
       });
       return newMenu;
 
     })
-  },[pageCompleted])
+  },[section, sectionCompleted])
   return (
     <div className='ApplyContainer'>
-      <ApplyNav type={applyType} setPage={setPage} menu={menu}/>
+      <ApplyNav type={applyType} setSection={setSection} menu={menu}/>
       {component}
     </div>
   )
